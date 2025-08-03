@@ -1,7 +1,8 @@
 import { Context } from 'telegraf';
 
 const huntCommand = async (ctx: Context) => {
-  const args = ctx.message?.text?.split(' ') || [];
+  const messageText = 'text' in ctx.message! ? ctx.message.text : '';
+  const args = messageText.split(' ');
   const target = args[1];
 
   if (!target) {
@@ -10,7 +11,7 @@ const huntCommand = async (ctx: Context) => {
 
   ctx.reply(`🔍 Scanning ${target}...`);
 
-  // TODO: jalankan nuclei + GPT nanti
+  // dummy reply dulu
   ctx.reply(`✅ Scan selesai (dummy).`);
 };
 
