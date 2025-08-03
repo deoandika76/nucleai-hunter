@@ -1,12 +1,11 @@
 {
   "name": "nucleai-hunter",
   "version": "1.0.0",
-  "main": "index.ts",
   "type": "module",
   "scripts": {
     "dev": "ts-node-dev index.ts",
-    "start": "node dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
