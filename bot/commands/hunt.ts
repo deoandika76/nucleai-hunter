@@ -1,7 +1,10 @@
-import { Context } from 'telegraf';
+import { Context, NarrowedContext } from 'telegraf';
+import { Message, Update } from 'telegraf/typings/core/types/typegram';
 
-const huntCommand = async (ctx: Context) => {
-  const messageText = 'text' in ctx.message! ? ctx.message.text : '';
+const huntCommand = async (
+  ctx: NarrowedContext<Context<Update>, Update.MessageUpdate<Message.TextMessage>>
+) => {
+  const messageText = ctx.message.text;
   const args = messageText.split(' ');
   const target = args[1];
 
@@ -11,7 +14,7 @@ const huntCommand = async (ctx: Context) => {
 
   ctx.reply(`🔍 Scanning ${target}...`);
 
-  // dummy reply dulu
+  // dummy reply
   ctx.reply(`✅ Scan selesai (dummy).`);
 };
 
